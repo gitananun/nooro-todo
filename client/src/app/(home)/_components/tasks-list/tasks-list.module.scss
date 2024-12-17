@@ -1,0 +1,70 @@
+.wrapper {
+  @apply mt-24 w-full;
+
+  .header {
+    @apply flex justify-between items-center w-full text-white;
+
+    .leading {
+      @apply text-cyan-400 font-bold flex gap-2 items-center;
+    }
+
+    .trailing {
+      @apply text-indigo-400 font-bold flex gap-2 items-center;
+    }
+  }
+
+  .list {
+    @apply w-full mt-4 flex flex-col gap-3;
+
+    .card {
+      @apply flex justify-between items-start w-full p-4 bg-gray-800 rounded-lg shadow-lg text-white border border-gray-700 cursor-pointer transition-all;
+
+      &:hover {
+        @apply bg-gray-700 shadow-lg;
+      }
+
+      .leading {
+        @apply flex items-start gap-4 w-full;
+
+        .indicator {
+          @apply w-4 h-4 rounded-full  border border-cyan-400 mt-1 flex items-center justify-center;
+        }
+
+        .content {
+          @apply text-white font-normal w-full;
+        }
+      }
+
+      .actions {
+        @apply flex gap-3 mt-0.5;
+
+        .icon,
+        .check {
+          @apply cursor-pointer transition-all;
+
+          &:hover {
+            @apply scale-125;
+          }
+        }
+
+        .icon {
+          @apply text-gray-500;
+        }
+
+        .check {
+          @apply text-green-500;
+        }
+      }
+
+      &.completed {
+        .indicator {
+          @apply border-none;
+        }
+
+        .content {
+          @apply line-through text-gray-500;
+        }
+      }
+    }
+  }
+}

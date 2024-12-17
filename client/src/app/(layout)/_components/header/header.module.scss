@@ -1,6 +1,19 @@
-@use "src/app/imports/variables" as *;
-
 .header {
-  @apply h-1/4 w-screen;
-  background-color: $header-background;
+  @apply h-1/4 w-screen bg-gray-950;
+
+  .heading {
+    @apply flex items-center justify-center h-full gap-6;
+
+    h1 {
+      @apply text-5xl font-black;
+
+      .span1 {
+        @apply text-cyan-500;
+      }
+
+      .span2 {
+        @apply text-indigo-500;
+      }
+    }
+  }
 }

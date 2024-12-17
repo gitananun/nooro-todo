@@ -1,0 +1,15 @@
+.wrapper {
+  @apply flex flex-col items-start gap-3;
+
+  .label {
+    @apply text-cyan-500 font-semibold text-base;
+  }
+
+  .item {
+    @apply w-10 h-10 rounded-full cursor-pointer border-2 transition border-transparent;
+
+    &.selected {
+      @apply border-white scale-110;
+    }
+  }
+}

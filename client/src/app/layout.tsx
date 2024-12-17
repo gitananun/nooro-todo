@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import styles from './layout.module.scss';
-import './globals.scss';
 import { LayoutHeader } from './(layout)/_components/header/header';
+import { XToaster } from './components';
+import './globals.scss';
+import styles from './layout.module.scss';
+import StoreProvider from './store-provider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,11 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${styles.body} antialiased`}>
-        <LayoutHeader />
-        {children}
-        </body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${styles.body} antialiased`}
+        suppressHydrationWarning
+      >
+        <StoreProvider>
+          <LayoutHeader />
+          <main className={styles.main}>
+            <div className={styles.container}>{children}</div>
+          </main>
+        </StoreProvider>
+        <div id="toaster-root"></div>
+      </body>
+      <XToaster />
     </html>
   );
 }

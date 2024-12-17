@@ -1,0 +1,7 @@
+.wrapper {
+  @apply flex flex-col items-start w-full mt-24 gap-6;
+
+  .icon {
+    @apply text-xl text-white mb-6;
+  }
+}

@@ -21,16 +21,16 @@
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
-      "@helpers/*": ["./helpers/*"],
       "@interfaces/*": ["./interfaces/*"],
       "@constants/*": ["./constants/*"],
       "@middlewares/*": ["./middlewares/*"],
-
       "@lib/*": ["./lib/*"],
-      "@hooks/*": [".lib//hooks/*"],
+      "@utils/*": ["./lib/utils/*"],
+      "@hooks/*": ["./lib/hooks/*"],
       "@store/*": ["./lib/store/*"],
       "@services/*": ["./lib/services/*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

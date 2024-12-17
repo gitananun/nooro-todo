@@ -1,12 +1,24 @@
-import styles from './page.module.scss';
+'use client';
+import { useAppDispatch } from '@/lib/hooks';
+import { dispatchTasksIndexAction } from '@/lib/store';
+import { useEffect } from 'react';
+import { NewTaskRow, TasksList } from './_components';
 
+const Home = () => {
+  const dispatch = useAppDispatch();
 
-const Home = ()  =>{
+  useEffect(() => {
+    dispatchTasksIndexAction(dispatch).catch(() => {});
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <main className={styles.main}>
-      
-    </main>
+    <>
+      <NewTaskRow />
+      <TasksList />
+    </>
   );
-}
+};
 
 export default Home;

@@ -1,6 +1,6 @@
 import { sendControllerErrorResponse, sendResponse } from "@/utils";
 import { Request, Response } from "express";
-import { ICreateRequest, IUpdateRequest, serviceCreate, serviceDestroy, serviceIndex, serviceUpdate } from ".";
+import { ICreateRequest, IUpdateRequest, serviceCreate, serviceDestroy, serviceIndex, serviceShow, serviceUpdate } from ".";
 
 export const controllerIndex = async (_: Request, res: Response) => {
   try {
@@ -9,6 +9,17 @@ export const controllerIndex = async (_: Request, res: Response) => {
     sendResponse(res, 200, "Tasks fetched", items);
   } catch (error: any) {
     sendControllerErrorResponse(res, error, "fetching tasks");
+  }
+};
+
+export const controllerShow = async (req: Request, res: Response) => {
+  try {
+    const { params } = req;
+    const item = await serviceShow(Number(params.id));
+
+    sendResponse(res, 200, "Task fetched", item);
+  } catch (error: any) {
+    sendControllerErrorResponse(res, error, "fetching task");
   }
 };
 
