@@ -1,32 +1,35 @@
 'use client';
+
 import { ColorSelector, XInput, XTextButton } from '@/app/components';
+import { ITask } from '@/interfaces';
 import { useAppDispatch } from '@/lib/hooks';
-import { dispatchTasksCreateAction } from '@/lib/store';
-import { showInfoNotif, showSuccessNotif } from '@/lib/utils';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { dispatchTasksUpdateAction } from '@/lib/store';
+import { showSuccessNotif } from '@/lib/utils';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './form.module.scss';
 import { FormFields, schema } from './schema';
 
-export const Form = () => {
-  const dispatch = useAppDispatch();
+interface IProps {
+  task: ITask;
+}
+
+export const Form = (props: IProps) => {
+  const { task } = props;
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const [, setSelectedColor] = useState<string>('');
 
   const form = useForm<FormFields>({
     resolver: zodResolver(schema),
-    defaultValues: {},
+    defaultValues: {
+      ...task,
+    },
   });
-
-  useEffect(
-    () => form.setFocus('title'),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
 
   const onColorSelected = (color: string) => {
     setSelectedColor(color);
@@ -34,11 +37,9 @@ export const Form = () => {
   };
 
   const handleOnSubmit = async (data: FormFields) => {
-    if (!data.color) return showInfoNotif('Please select a color');
-
-    await dispatchTasksCreateAction(dispatch, data)
+    await dispatchTasksUpdateAction(dispatch, task.id, data)
       .then(() => {
-        showSuccessNotif('Task Added Successfully');
+        showSuccessNotif('Task Updated Successfully');
         router.back();
       })
       .catch(() => {});
@@ -55,8 +56,8 @@ export const Form = () => {
 
       <ColorSelector onSelected={onColorSelected} selectedColor={form.getValues().color ?? ''} />
 
-      <XTextButton icon={faCirclePlus} className="w-full mt-3" formSubmit>
-        Add Task
+      <XTextButton icon={faCheck} className="w-full mt-3" formSubmit>
+        Save
       </XTextButton>
     </form>
   );

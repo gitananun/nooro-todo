@@ -3,6 +3,7 @@ import { useAppDispatch } from '@/lib/hooks';
 import { dispatchTasksDeleteAction, dispatchTasksUpdateAction } from '@/lib/store';
 import { faCheck, faCircleCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import styles from './tasks-list.module.scss';
 
 interface IProps {
@@ -19,12 +20,14 @@ export const TasksListItem = (props: IProps) => {
 
   return (
     <div className={`${styles.card} ${task.completed ? styles.completed : ''}`}>
-      <div className={styles.leading}>
-        <div className={`${styles.indicator} ${!task.color || !task.completed ? styles.defaultColor : task.color}`}>
-          {task.completed && <FontAwesomeIcon icon={faCheck} width={8} />}
+      <Link href={`/${task.id}`} className="w-full">
+        <div className={styles.leading}>
+          <div className={`${styles.indicator} ${!task.color || !task.completed ? styles.defaultColor : task.color}`}>
+            {task.completed && <FontAwesomeIcon icon={faCheck} width={8} />}
+          </div>
+          <p className={styles.content}>{task.title}</p>
         </div>
-        <p className={styles.content}>{task.title}</p>
-      </div>
+      </Link>
       <div className={styles.actions}>
         {!task.completed && (
           <FontAwesomeIcon icon={faCircleCheck} width={16} className={styles.check} onClick={onCheck} />

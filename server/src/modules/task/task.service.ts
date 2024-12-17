@@ -1,4 +1,4 @@
-import { taskCreate, taskDestroy, taskIndex, taskUpdate } from "@/repositories";
+import { taskCreate, taskDestroy, taskFindByID, taskIndex, taskUpdate } from "@/repositories";
 import { ErrorWithStatusCode } from "@/types";
 import { Task } from "@prisma/client";
 import { ICreateRequestBody, IUpdateRequestBody } from ".";
@@ -8,6 +8,13 @@ export const serviceIndex = async (): Promise<Task[]> => {
   if (!items) throw new ErrorWithStatusCode(404, "No tasks found");
 
   return items;
+};
+
+export const serviceShow = async (id: number): Promise<Task> => {
+  const item = await taskFindByID(id);
+  if (!item) throw new ErrorWithStatusCode(404, "Task not found");
+
+  return item;
 };
 
 export const serviceCreate = async (data: ICreateRequestBody): Promise<Task> => {
