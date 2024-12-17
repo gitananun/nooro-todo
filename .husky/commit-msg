@@ -1,0 +1,8 @@
+echo "✅ Running commitlint with the following rules (conventional commit format):"
+echo "- Commits must follow the conventional commit format defined by @commitlint/config-conventional."
+echo "- For types use only: feat (feature), fix (errors), chore (dependencies), perf(performance), docs, refactor, style", 
+echo "----------"
+
+npx --no -- commitlint --edit $1
+
+echo "✅ Commitlint passed"

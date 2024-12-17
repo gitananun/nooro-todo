@@ -11,6 +11,8 @@ Build a **Todo List App** where users can:
 - Mark tasks as Completed/Not Completed.
 - Delete tasks.
 
+---
+
 ### **Features**
 
 ### **1. Home View**
@@ -69,3 +71,14 @@ Build a **Todo List App** where users can:
 2. Include:
    - Clear setup instructions for both repos.
    - Steps for database initialization using Prisma.
+
+---
+
+## Installation Guide
+
+- Clone this repository
+- The `main` branch is the most stable branch at any given time, ensure you're working from it.
+- Run `npm install` to install all dependencies for the Server and Client
+- Duplicate `.env.example` and rename it to `.env` for the Server and Client
+- Update the `.env` file with your credentials
+- Run `npm start` to start the server (or `yarn start` if you're using yarn)

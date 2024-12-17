@@ -1,0 +1,4 @@
+echo "✅ Running pre-commit hook..."
+
+# Lint the server
+cd client && npx next lint --fix && cd ..

@@ -1,0 +1,30 @@
+{
+  "name": "nooro-todo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simultaneously Run the App",
+  "scripts": {
+    "test": "cd server && npm test",
+    "server": "npm start --prefix server",
+    "client": "npm run dev --prefix client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "pre-commit": "echo '✅ Running pre-commit commands...' && cd server && npm run ts.check",
+    "prepare": "husky"
+  },
+  "pre-commit": [
+    "pre-commit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gitananun/nooro-todo"
+  },
+  "author": "TM",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "concurrently": "^7.6.0",
+    "husky": "^9.0.11",
+    "pre-commit": "^1.0.10"
+  }
+}
