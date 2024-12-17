@@ -17,9 +17,12 @@ export const TasksList = () => {
         </p>
       </div>
       <div className={styles.list}>
-        {items.map((item) => (
-          <TasksListItem key={item.id} task={item} />
-        ))}
+        {items
+          .slice()
+          .sort((item) => (item.completed ? 1 : -1))
+          .map((item) => (
+            <TasksListItem key={item.id} task={item} />
+          ))}
       </div>
     </div>
   );

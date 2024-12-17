@@ -11,7 +11,7 @@ export const TasksListItem = (props: IProps) => {
   const { task } = props;
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${task.completed ? styles.completed : ''}`}>
       <div className={styles.leading}>
         <div className={styles.indicator}></div>
         <p className={styles.content}>{task.title}</p>

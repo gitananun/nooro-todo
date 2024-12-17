@@ -22,29 +22,35 @@
       &:hover {
         @apply bg-gray-700 shadow-lg;
       }
-    }
 
-    .leading {
-      @apply flex items-start gap-4;
+      .leading {
+        @apply flex items-start gap-4 w-full;
 
-      .indicator {
-        @apply w-4 h-4 rounded-full bg-transparent border border-cyan-400 mt-1;
+        .indicator {
+          @apply w-4 h-4 rounded-full bg-transparent border border-cyan-400 mt-1;
+        }
 
-        &.completed {
-          @apply bg-indigo-400 text-white;
+        .content {
+          @apply text-white font-normal w-full;
         }
       }
 
-      .content {
-        @apply text-white font-normal;
+      .actions {
+        @apply mt-0.5;
+
+        .icon {
+          @apply text-gray-500;
+        }
       }
-    }
 
-    .actions {
-      @apply mt-0.5;
+      &.completed {
+        .indicator {
+          @apply bg-indigo-400 border-none;
+        }
 
-      .icon {
-        @apply text-gray-500;
+        .content {
+          @apply line-through text-gray-500;
+        }
       }
     }
   }
