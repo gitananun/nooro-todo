@@ -5,6 +5,7 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import hpp from "hpp";
 import morgan from "morgan";
+import { readFromEnv } from "../utils";
 
 export const applyAppMiddlewares = (app: express.Application) => {
   // Enable morgan logging
@@ -17,7 +18,7 @@ export const applyAppMiddlewares = (app: express.Application) => {
   app.use(helmet());
 
   // Allow requests to be sent from the client
-  app.use(cors({ credentials: true, origin: "".split(",") }));
+  app.use(cors({ credentials: true, origin: readFromEnv("ALLOWED_ORIGINS")?.split(",") }));
 
   // Limit repeated requests to public APIs and/or endpoints such as password reset
   app.use(

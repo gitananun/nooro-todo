@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,46 +19,19 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@helpers/*": [
-        "./helpers/*"
-      ],
-      "@interfaces/*": [
-        "./interfaces/*"
-      ],
-      "@constants/*": [
-        "./constants/*"
-      ],
-      "@middlewares/*": [
-        "./middlewares/*"
-      ],
-      "@lib/*": [
-        "./lib/*"
-      ],
-      "@hooks/*": [
-        ".lib//hooks/*"
-      ],
-      "@store/*": [
-        "./lib/store/*"
-      ],
-      "@services/*": [
-        "./lib/services/*"
-      ]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@constants/*": ["./constants/*"],
+      "@middlewares/*": ["./middlewares/*"],
+      "@lib/*": ["./lib/*"],
+      "@utils/*": ["./lib/utils/*"],
+      "@hooks/*": ["./lib/hooks/*"],
+      "@store/*": ["./lib/store/*"],
+      "@services/*": ["./lib/services/*"]
     },
     "target": "ES2017"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

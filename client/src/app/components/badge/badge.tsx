@@ -5,5 +5,5 @@ interface IProps {
 export const XBadge = (props: IProps) => {
   const { text } = props;
 
-  return <div className="badge badge-neutral font-bold">{text}</div>;
+  return <span className="badge badge-neutral font-bold">{text}</span>;
 };
