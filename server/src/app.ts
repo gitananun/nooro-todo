@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
-import { createServerApp, initializeDB, prisma } from "./utils";
+import { prismaClient } from "./db";
+import { createServerApp, initializeDB } from "./utils";
 
 dotenv.config();
 
@@ -9,12 +10,13 @@ const port = 8080;
 
 async function startServer() {
   try {
-    await initializeDB().then(() => console.log("🔌 -> DB connected!"));
+    await initializeDB();
+    console.log("🔌 -> DB connected!");
 
     app.listen(port, () => console.log(`🚀 -> Server running on localhost:${port}`));
   } catch (error) {
     console.error("❌ -> Error starting server:", error);
-    await prisma.$disconnect();
+    await prismaClient.$disconnect();
     process.exit(1);
   }
 }

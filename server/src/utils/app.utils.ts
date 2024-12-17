@@ -1,7 +1,7 @@
+import { prismaClient } from "@/db";
+import { applyAppMiddlewares } from "@/middlewares";
 import express from "express";
-import { prisma } from ".";
-import { applyAppMiddlewares } from "../middlewares";
-import router from "../router";
+import router from "router";
 
 export const createServerApp = () => {
   const app = express();
@@ -20,5 +20,5 @@ export const createServerApp = () => {
 export const initializeDB = async () => {
   console.log("🔌 -> Waiting for DB connection...");
 
-  return await prisma.$connect();
+  return await prismaClient.$connect();
 };

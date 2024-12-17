@@ -1,2 +1,2 @@
 export * from "./app.utils";
-export * from "./prisma.utils";
+export * from "./response.utils";
