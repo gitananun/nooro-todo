@@ -44,6 +44,7 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
+    "@prisma/client": "^6.0.1",
     "@types/axios": "^0.14.0",
     "axios": "^1.6.2",
     "body-parser": "^1.20.2",
@@ -57,6 +58,7 @@
     "morgan": "^1.10.0",
     "node-cron": "^3.0.3",
     "path": "^0.12.7",
+    "prisma": "^6.0.1",
     "tscpaths": "^0.0.9",
     "zod": "^3.23.8"
   },
