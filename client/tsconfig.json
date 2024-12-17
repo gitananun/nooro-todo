@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -11,6 +10,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "baseUrl": "./src",
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
@@ -19,7 +19,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@helpers/*": ["./helpers/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@constants/*": ["./constants/*"],
+      "@middlewares/*": ["./middlewares/*"],
+
+      "@lib/*": ["./lib/*"],
+      "@hooks/*": [".lib//hooks/*"],
+      "@store/*": ["./lib/store/*"],
+      "@services/*": ["./lib/services/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

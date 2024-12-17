@@ -1,0 +1,6 @@
+@use "src/app/imports/variables" as *;
+
+.main {
+  @apply w-screen h-3/4;
+  background-color: $body-background;
+}

@@ -1,0 +1,12 @@
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended"],
+  "plugins": ["unused-imports"],
+  "globals": {
+    "JSX": "readonly" // This is for the JSX global variable
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "off",
+    "no-useless-catch": "warn"
+  }
+}
