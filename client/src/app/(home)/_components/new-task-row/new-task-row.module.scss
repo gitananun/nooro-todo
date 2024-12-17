@@ -1,0 +1,10 @@
+.create {
+  @apply flex items-center justify-center absolute w-full;
+  margin-top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .button {
+    @apply w-full;
+  }
+}
