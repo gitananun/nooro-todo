@@ -24,7 +24,7 @@ export const ColorSelector = (props: IProps) => {
   return (
     <div className={styles.wrapper}>
       <label className={styles.label}>Color</label>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         {colors.map((color, index) => (
           <button
             key={index}
