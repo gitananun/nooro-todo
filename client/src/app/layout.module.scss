@@ -1,6 +1,3 @@
-@use "src/app/imports/variables" as *;
-
 body {
-  @apply w-full h-screen;
-  background-color: $body-background;
+  @apply w-full h-screen bg-gray-900;
 }

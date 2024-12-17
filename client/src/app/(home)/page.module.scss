@@ -1,6 +1,14 @@
-@use "src/app/imports/variables" as *;
-
 .main {
-  @apply w-screen h-3/4;
-  background-color: $body-background;
+  @apply w-screen h-3/4 relative;
+
+  .create {
+    @apply flex items-center justify-center absolute w-full;
+    margin-top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .button {
+      @apply w-2/3 md:w-1/3;
+    }
+  }
 }
