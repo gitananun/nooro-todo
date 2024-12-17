@@ -1,0 +1,6 @@
+@use "src/app/imports/variables" as *;
+
+.header {
+  @apply h-1/4 w-screen;
+  background-color: $header-background;
+}
