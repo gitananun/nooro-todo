@@ -25,3 +25,9 @@ export const taskDestroy = async (id: number): Promise<Task> => {
 
   return item;
 };
+
+export const taskFindByTitle = async (title: string): Promise<Task | null> => {
+  const item = await prismaClient.task.findFirst({ where: { title } });
+
+  return item;
+};

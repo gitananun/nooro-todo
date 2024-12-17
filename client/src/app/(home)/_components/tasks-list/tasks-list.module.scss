@@ -27,7 +27,7 @@
         @apply flex items-start gap-4 w-full;
 
         .indicator {
-          @apply w-4 h-4 rounded-full bg-transparent border border-cyan-400 mt-1;
+          @apply w-4 h-4 rounded-full  border border-cyan-400 mt-1 flex items-center justify-center;
         }
 
         .content {
@@ -36,16 +36,29 @@
       }
 
       .actions {
-        @apply mt-0.5;
+        @apply flex gap-3 mt-0.5;
+
+        .icon,
+        .check {
+          @apply cursor-pointer transition-all;
+
+          &:hover {
+            @apply scale-125;
+          }
+        }
 
         .icon {
           @apply text-gray-500;
+        }
+
+        .check {
+          @apply text-green-500;
         }
       }
 
       &.completed {
         .indicator {
-          @apply bg-indigo-400 border-none;
+          @apply border-none;
         }
 
         .content {

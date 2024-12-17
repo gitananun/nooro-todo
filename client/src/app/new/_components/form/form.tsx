@@ -52,7 +52,7 @@ export const Form = () => {
         {...form.register('title')}
       />
 
-      <ColorSelector onSelected={onColorSelected} selectedColor={form.getValues().color} />
+      <ColorSelector onSelected={onColorSelected} selectedColor={form.getValues().color ?? ''} />
 
       <XTextButton icon={faCirclePlus} className="w-full mt-3" formSubmit>
         Add Task

@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export interface ITask {
-  id: string;
+  id: number;
   title: string;
   color?: string;
   completed: boolean;

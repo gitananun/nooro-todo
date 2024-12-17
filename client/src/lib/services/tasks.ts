@@ -16,4 +16,13 @@ export const tasksService = {
 
     return taskAdapter(item);
   },
+  update: async (id: number, data: Partial<ITask>): Promise<ITask> => {
+    const response = await axiosInstance().put<IResponseData<ITask>>(`${BASE_URL}/${id}`, data);
+    const item = validateServiceResponseData(response);
+
+    return taskAdapter(item);
+  },
+  destroy: async (id: number): Promise<void> => {
+    await axiosInstance().delete(`${BASE_URL}/${id}`);
+  },
 };
