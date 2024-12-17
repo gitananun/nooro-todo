@@ -18,7 +18,6 @@ const Home = () => {
     <main className={styles.main}>
       <div className={styles.container}>
         <NewTaskRow />
-
         <TasksList />
       </div>
     </main>

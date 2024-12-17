@@ -1,0 +1,15 @@
+.wrapper {
+  @apply border-t border-gray-800 mt-5 pt-14 w-full flex flex-col items-center justify-center gap-5;
+
+  .icon {
+    @apply text-5xl text-gray-600;
+  }
+
+  .title {
+    @apply text-gray-500 font-bold;
+  }
+
+  .subtitle {
+    @apply text-gray-500;
+  }
+}
