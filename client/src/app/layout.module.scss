@@ -1,3 +1,11 @@
 body {
   @apply w-full h-screen bg-gray-900;
+
+  .main {
+    @apply w-screen h-3/4 relative;
+
+    .container {
+      @apply flex gap-4 w-3/4 md:w-1/2 h-full mx-auto relative;
+    }
+  }
 }

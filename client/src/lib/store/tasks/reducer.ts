@@ -16,8 +16,11 @@ const tasksSlice = createSlice({
     set: (state, actions: PayloadAction<ITask[]>) => {
       state.items = actions.payload;
     },
+    add: (state, action: PayloadAction<ITask>) => {
+      state.items.push(action.payload);
+    },
   },
 });
 
-export const { set } = tasksSlice.actions;
+export const { set, add } = tasksSlice.actions;
 export default tasksSlice.reducer;

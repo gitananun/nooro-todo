@@ -19,6 +19,6 @@ export const showPromiseNotif = (promise: Promise<any>, message: string, success
   return toast.promise(promise, {
     loading: message,
     success: success,
-    error: error ?? '',
+    error: error ?? 'dsads',
   });
 };

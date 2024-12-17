@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { LayoutHeader } from './(layout)/_components/header/header';
+import { XToaster } from './components';
 import './globals.scss';
 import styles from './layout.module.scss';
 import StoreProvider from './store-provider';
@@ -27,12 +28,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${styles.body} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${styles.body} antialiased`}
+        suppressHydrationWarning
+      >
         <StoreProvider>
           <LayoutHeader />
-          {children}
+          <main className={styles.main}>
+            <div className={styles.container}>{children}</div>
+          </main>
         </StoreProvider>
+        <div id="toaster-root"></div>
       </body>
+      <XToaster />
     </html>
   );
 }
