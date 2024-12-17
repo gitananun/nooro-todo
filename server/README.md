@@ -5,7 +5,7 @@ Prisam ORM is a simple Object Relational Mapping (ORM) for MySQL. It is designed
 How to migrate the database schema:
 
 ```bash
-$ npx prisma migrate dev --name init
+$ npx prisma migrate dev --name [name]
 ```
 
 To Manually generate the Prisma Client:
